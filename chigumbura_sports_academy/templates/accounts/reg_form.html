@@ -1,0 +1,66 @@
+{% extends 'base/base_home.html' %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+{% block title %}Chigumbura Sports Academy : sign in{% endblock %}
+{% block content %}
+   <!-- //header -->
+   <div class="main-content inner">
+        <div class="overlay inner">
+
+        </div>
+    </div>
+    <section class="contact-main py-5">
+            <div class="container py-md-5">
+                <h3 class="title-w3pvt text-center">Signup Now</h3>
+                {% if form.errors %}
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <div class="alert alert-danger">
+                            <strong>{{ error|escape }}</strong>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+                {% for error in form.non_field_errors %}
+                    <div class="alert alert-danger">
+                        <strong>{{ error|escape }}</strong>
+                    </div>
+                {% endfor %}
+                {% endif %}
+                <div class="login px-sm-4 mx-auto mw-100 login-wrapper">
+                    <form class="login-wrapper w3pvt_mail_grid_right" action="." method="POST">
+                            {% csrf_token %}
+                        <div class="form-group">
+                                <p>{{ form.username|as_crispy_field}}</p>
+                        </div>
+    
+                        <div class="form-group">
+                                <p>{{ form.first_name|as_crispy_field}}</p>
+                        </div>
+    
+                        <div class="form-group">
+                                <p>{{ form.last_name|as_crispy_field}}</p>
+                        </div>
+                        <div class="form-group">
+                                <p>{{ form.email|as_crispy_field}}</p>
+                        </div>
+                        <div class="form-group">
+                                <p>{{ form.password1|as_crispy_field}}</p>
+                        </div>
+                        <div class="form-group">
+                                <p>{{ form.password2|as_crispy_field}}</p>
+                        </div>
+                        <button type="submit" class="btn btn-primary submit mt-2 read-more">Sign Up</button>
+                        <p class="text-center mt-4">
+                            <a href="#">By clicking Signup, I agree to your terms</a>
+    
+                        </p>
+                    </form>
+                </div>
+    
+    
+    
+    
+            </div>
+        </section>
+
+{% endblock %}

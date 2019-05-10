@@ -1,0 +1,33 @@
+{% extends 'base/base_home.html' %}
+{% load staticfiles %}
+{% block title %}Chigumbura Sports Academy{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  {{ message }}
+</div>
+{% endfor %}
+{% endif %}
+<div class="main-content" id="home">
+    <div class="overlay">
+        <!-- //header -->
+        <div class="container">
+            <!-- /banner -->
+            <div class="banner-info text-left">
+                <h3>Liter your hearts and minds</h3>
+                <p class="my-3">Pellentesque maximus Pellentesque libero justo Nulla uter sollicitudin velit.Morbi viverra lacus commodo felis.</p>
+                <div class="read-more-button">
+                    <a href="#" class="read-more scroll btn">Read More </a> </div>
+            </div>
+
+        </div>
+        <!-- //banner -->
+    </div>
+</div>
+
+{% endblock %}

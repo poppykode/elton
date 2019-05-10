@@ -1,0 +1,144 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="zxx">
+
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="keywords" content="elton chigumbura, sports academy, soccer, tennis, cricket, rugby,zimbabwe,tarining" />
+    <script>
+        addEventListener("load", function() {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+
+    </script>
+    <!-- //Meta tag Keywords -->
+    <!-- Custom-Files -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <!-- Bootstrap-Core-CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" media="all" />
+    <!-- Style-CSS -->
+    <!-- font-awesome-icons -->
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+    <!-- //font-awesome-icons -->
+    <!-- /Fonts -->
+    <link href="//fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700" rel="stylesheet">
+    <!-- //Fonts -->
+</head>
+
+<body>
+    <!-- //header -->
+    <header class="py-sm-3 pt-3 pb-2" id="home">
+        <div class="container">
+            <!-- nav -->
+            <div class="top d-md-flex">
+                <div id="logo">
+                    <h1> <a href="{% url 'corporate:home' %}"><img src="{% static 'images/logo/logo.jpeg' %}" alt="logo" srcset="" class="ec-logo"></a></h1>
+                </div>
+                <div class="search-form mx-md-auto" style="text-align:center;">
+                    <h1 class="ec-btn-margin-top">Adverts</h1>
+                    <!-- <div class="form-w3layouts-grid">
+                        <form action="#" method="post" class="newsletter">
+                         
+
+                        </form>
+                    </div> -->
+                </div>
+                <div class="forms mt-md-0 mt-2 ">
+                    <a href="{% url 'corporate:donate' %}" class="btn ec-btn-margin-top"><span class="fa fa-heart"></span> Donate</a>
+                    {% if not user.is_authenticated %}
+                    <a href="{% url 'accounts:login_view' %}" class="btn ec-btn-margin-top"><span class="fa fa-user-circle"></span> Sign In</a>
+                    <a href="{% url 'accounts:register' %}" class="btn ec-btn-margin-top"><span class="fa fa-pencil-square"></span> Sign Up</a>
+                    {% else %}
+                    <a href="{% url 'accounts:view_profile' %}" class="btn ec-btn-margin-top"> Hi :: {{user.username|title }}</a>
+                    <a href="{% url 'logout' %}" class="btn ec-btn-margin-top"><span class="fa fa-sign-out"></span> Sign Out</a>
+                    {% endif %}
+                </div>
+            </div>
+            <nav class="text-center">
+                <label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
+                <input type="checkbox" id="drop" />
+                <ul class="menu">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="{% url 'corporate:about_us' %}">About Us</a></li>
+                    <li>
+                        <!-- First Tier Drop Down -->
+                        <label for="drop-2" class="toggle">Dropdown <span class="fa fa-angle-down" aria-hidden="true"></span>
+                        </label>
+                        <a href="#">Sports Categories <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+                        <input type="checkbox" id="drop-2" />
+                        <ul>
+                            <li><a href="#" class="drop-text">Cricket</a></li>
+                            <li><a href="#" class="drop-text">Tennis</a></li>
+                            <li><a href="#" class="drop-text">Rugby</a></li>
+                            <li><a href="#" class="drop-text">Soccer</a></li>
+
+                        </ul>
+                    </li>
+                    <li><a href="{% url 'corporate:about_elton' %}">Meet Elton</a></li>
+                    <li><a href="{% url 'corporate:join_academy' %}">Join Academy</a></li>
+                    <li><a href="{% url 'corporate:events' %}">Events</a></li>
+                    <li><a href="{% url 'corporate:contact_us' %}">Contact</a></li>
+                </ul>
+            </nav>
+            <!-- //nav -->
+        </div>
+    </header>
+    <!-- //header -->
+
+    {% block content %}
+    {% endblock %}
+  <!--/help-line -->
+  <section class="help-line-w3layouts py-5">
+        <div class="container">
+            <div class="row help-line-grid">
+                <div class="col-sm-6">
+                    <h3>Contact Us</h3>
+                    <p>Call us, we are 24/7 Helpline</p>
+                </div>
+                <div class="col-sm-6 text-sm-right mt-sm-0 mt-3">
+                    <h3><span class="fa fa-phone" aria-hidden="true"></span> +11 2345 6789</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--//help-line -->
+    
+    <div class="copy-right py-2">
+        <div class="container-fluid inner-sec-w3ls">
+            <div class="row">
+                <div class="col-lg-6 copy-w3pvt">
+                    <p class="copy-right-grids text-li text-left my-sm-4 my-4">© {% now "Y" %} Chigumbura Sports Academy. All Rights Reserved | Design by 
+                        <a href="#"> poppykode </a>
+                    </p>
+                </div>
+                <div class="col-lg-5 w3layouts-footer text-right">
+                    <ul class="social_section_1info">
+                        <li class="mb-2 facebook"><a href="#"><span class="fa fa-facebook"></span> facebook</a></li>
+                        <li class="mb-2 twitter"><a href="#"><span class="fa fa-twitter"></span> twitter</a></li>
+                        <li class="google"><a href="#"><span class="fa fa-google-plus"></span> google</a></li>
+                        <li class="linkedin"><a href="#"><span class="fa fa-linkedin"></span> linkedin</a></li>
+                    </ul>
+                </div>
+                <div class="move-top col-1"><a href="#home" class="move-top"> <span class="fa fa-angle-up" aria-hidden="true"></span></a></div>
+            </div>
+            <!-- //footer bottom -->
+        </div>
+    </div>
+
+</body>
+
+</html>
