@@ -63,7 +63,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <a href="{% url 'accounts:login_view' %}" class="btn ec-btn-margin-top"><span class="fa fa-user-circle"></span> Sign In</a>
                     <a href="{% url 'accounts:register' %}" class="btn ec-btn-margin-top"><span class="fa fa-pencil-square"></span> Sign Up</a>
                     {% else %}
-                    <a href="{% url 'accounts:view_profile' %}" class="btn ec-btn-margin-top"> Hi :: {{user.username|title }}</a>
+                    <a href="{% url 'dashboard:dashboard_menu' %}" class="btn ec-btn-margin-top"> Hi :: {{user.username|title }}</a>
                     <a href="{% url 'logout' %}" class="btn ec-btn-margin-top"><span class="fa fa-sign-out"></span> Sign Out</a>
                     {% endif %}
                 </div>

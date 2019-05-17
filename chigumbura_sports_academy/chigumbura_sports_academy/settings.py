@@ -50,7 +50,8 @@ INSTALLED_APPS = [
     'accounts',
     'corporate', 
     'dependencies',
-    'videos',
+    'media_content',
+    'dashboard',
     # third parties
     'crispy_forms',
     'corsheaders',
@@ -161,9 +162,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [STATIC_DIR, ]
+STATICFILES_DIRS = [STATIC_DIR,]
 
-# LOGIN_REDIRECT_URL ='/accounts/p/view-profile/'
+# LOGIN_REDIRECT_URL ='/dashboard/menu'
 LOGOUT_REDIRECT_URL='/accounts/p/login/view/'
 
 MEDIA_ROOT = MEDIA_DIR

@@ -23,9 +23,11 @@ urlpatterns = [
     path('',include('corporate.urls')),
     path('accounts/p/',include('accounts.urls')),
     path('accounts/',include('django.contrib.auth.urls')),
+    path('dashboard/',include('dashboard.urls')),
     # APIs
     path('api/v1/accounts/',include('accounts.api.urls')),
     path('api/v1/dependencies/',include('dependencies.api.urls')),
+    path('api/v1/sports/',include('media_content.api.urls'))
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

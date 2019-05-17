@@ -32,7 +32,7 @@ def login(request):
             return  redirect(reverse('corporate:home'))
         auth.login(request, user)
         messages.success(request, 'user successfully logged in.') 
-        return  redirect(reverse('accounts:view_profile'))  
+        return  redirect(reverse('dashboard:dashboard_menu'))  
     else:
         messages.error(request, 'Invalid username or password.') 
         return render(request,template_name) 

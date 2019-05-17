@@ -9,8 +9,25 @@ from rest_framework.status import (
     HTTP_201_CREATED
 )
 from rest_framework.response import Response
-from .serializers import DependentSerializer
-from dependencies.models import Dependent
+from .serializers import DependentSerializer,VideoSerializer
+from dependencies.models import Dependent,Video
+from media_content.models import SportsCategory
+
+# get dependent video by passing dependent_id
+@csrf_exempt
+@api_view(['GET',])
+def get_videos(request):
+    if request.method == 'GET':
+        queryset = Video.objects.all()
+        id = request.query_params.get('dependent_id', None)
+        if id is not None:
+            queryset = queryset.filter(dependent=id)
+            print("videos")
+            print(queryset)    
+            serializer = VideoSerializer(queryset ,many=True)
+        return Response(serializer.data)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 @csrf_exempt
 @api_view(["POST"])
